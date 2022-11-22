@@ -1,0 +1,47 @@
+.form {
+  padding: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputs {
+  margin: 4px;
+}
+
+.personal-row {
+  display: flex;
+}
+
+fa-icon {
+  margin-left: 30px;
+  margin-top: 49px;
+  font-size: xx-large;
+}
+
+
+fa-icon:hover {
+  color: #2b71cd;
+  cursor: pointer;
+}
+
+.ciudades-control{
+  display: flex;
+  flex-direction: row;
+}
+
+.ciudad-control, .label-c{
+  width: 30%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.ciudad-control-delete{
+  text-align: center;
+  margin-top: 0px;
+}

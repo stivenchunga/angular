@@ -1,0 +1,73 @@
+<div class="container col-sm-12 col-md-12 ">
+
+  <form class="form-group col-sm-7 col-md-7 form border-light " [formGroup]="miFormulario">
+
+    <h1 *ngIf="!modificar" class="p-1  text-center text-primary">Nuevo proyecto</h1>
+    <h1 *ngIf="modificar" class="p-1  text-center text-primary">Modificar proyecto</h1>
+
+    <div class="mb-12 row">
+
+      <div class="col-12 inputs">
+
+        <label class="form-label  mt-5 ">Nombre de el proyecto:</label>
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Proyecto">
+        <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">
+          Este campo es obligatorio
+        </span>
+
+      </div>
+
+      <div class="col-sm-12 inputs mt-4 row">
+
+        <label class="form-label">Descripcion:</label>
+
+        <input type="text" class="form-control" rows="3" formControlName="descripcion"
+          placeholder="Descripcion de el proyecto">
+        <span class="form-text text-danger" *ngIf="campoEsValido('descripcion')">
+          Este campo es obligatorio
+        </span>
+
+      </div>
+
+      <div class="personal-row">
+
+        <div class="col-sm-4 inputs mt-4 ">
+
+          <label for="formGroupExampleInput" class="form-label  ">ciudad donde se realizara:</label>
+
+          <input type="text" class="form-control" required [(ngModel)]="filterPost"
+            [ngModelOptions]="{standalone: true}">
+
+          <div class="list-group col-sm-5" *ngFor="let item of cities | filter:filterPost">
+            <a *ngIf="filterPost" (click)="dataInput(item)"
+              class="list-group-item border-opacity-25 list-group-item-action">{{item.ciudad}}</a>
+          </div>
+
+        </div>
+
+        <fa-icon (click)="ciudadSeleccion()" class="col-sm-4" [icon]="faPlus"></fa-icon>
+
+      </div>
+      <hr>
+
+      <div class="list-group ciudades-control" *ngFor="let item of ciudadesAr ; let i ">
+
+        <label class="label-c">Ubicacion:*</label>
+        <label class=" ciudad-control">{{item || 'Sin datos'}}</label>
+        <fa-icon (click)="eliminarSeleccion(item)" class="ciudad-control-delete" [icon]="faMinusSquare"></fa-icon>
+      </div>
+
+      <div class="col-sm-12 mt-5">
+        <button  *ngIf="!modificar" type="button" class="btn btn-primary float-end pt-2" btn-lg btn-block
+          (click)="agregar()">Agregar</button>
+        <button *ngIf="modificar" type="button" class="btn btn-primary float-end pt-2" btn-lg btn-block
+          (click)="modificarOb()">Modificar</button>
+      </div>
+
+
+
+    </div>
+  </form>
+
+
+</div>
